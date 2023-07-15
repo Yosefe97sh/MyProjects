@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title> AI-Based Sign Language Translator </title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+              <img src="KAU_logo.png" alt="King Abdulaziz University logo">
+        <div class="login-page">
+            <div class="form">
+                <div class="login">
+                    <div class="login-header">
+                        <h3>AI-Based Sign Language Translator</h3>
+                        <p>Please Load an Image from directory.</p>
+                    </div>
+                </div>
+                <form class="login-form">
+                    <div id="dataurl-container">
+                        <div class="box">
+                            <img src="" alt="" id="image" width="300" height="300">
+                        </div>
+                    </div>
+                
+                <div class="image-selection">
+                    <button>Select and Classify Image</button>
+                    <input type="file" name="uploadImage" id="loadImage">
+                </div>
+                
+                <p class="message">Prediction: <a id="class-type"></a></p>
+                </form>
+            </div>
+        </div>
+    <script>
+        let loadImage = document.getElementById('loadImage')
+        loadImage.addEventListener('change', function(e){
+                    
+            var img = document.getElementById('image');
+            console.log(e.target.files)
+	        let file = e.target.files[0]
+            if (file){
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.addEventListener("load", function(){
+                    
+                    img.style.display = "block"
+                    img.setAttribute('src', this.result);
+                });
+            }
+
+            else{
+            img.setAttribute("src", "");
+            }
+        })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/2.0.1/tf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title> ASL Classification Using Transfer Learning </title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>ASL Classification Using Transfer Learning</h1>
+            </div>
+            <div class="main">
+                <div class="image-container">
+                    <img src="" alt="" id="image" width="300" height="300">
+                </div>
+                <div class="form">
+                    <div class="image-selection">
+                        <input type="file" name="uploadImage" id="loadImage">
+                        <label for="loadImage" class="btn">Select Image</label>
+                    </div>
+                    <div class="prediction">
+                        <p>Prediction: <span id="class-type"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html> -->
+
+
