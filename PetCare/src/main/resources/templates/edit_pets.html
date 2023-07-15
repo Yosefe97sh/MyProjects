@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Pet Care</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/pets">Pet Services</a>
+	<a class="navbar-brand" th:href = "@{/login}">My Pets</a>
+</nav>
+<br>
+<br>
+<div class = "container">
+  <div class = "row">
+    <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+      <h1 class = "text-center"> Update Pet </h1>
+      <div class = "card-body">
+        <form th:action="@{/pets/save/{pid} (pid=${pet.pid})}" th:object = "${pet}" method="POST">
+          <div class ="form-group">
+            <label> Pet Name </label>
+            <input
+                    type = "text"
+                    name = "name"
+                    th:field = "*{name}"
+                    class = "form-control"
+                    placeholder="Enter Pet Name"
+            />
+          </div>
+
+          <div class ="form-group">
+            <label> Pet Type </label>
+            <input
+                    type = "text"
+                    name = "type"
+                    th:field = "*{type}"
+                    class = "form-control"
+                    placeholder="Enter Pet Type"
+            />
+          </div>
+
+          <div class ="form-group">
+            <label> Pet Gender </label>
+            <input
+                    type = "text"
+                    name = "gender"
+                    th:field = "*{gender}"
+                    class = "form-control"
+                    placeholder="Enter Pet Gender"
+            />
+          </div>
+          
+          <div class ="form-group">
+            <label> Description </label>
+            <input
+                    type = "text"
+                    name = "description"
+                    th:field = "*{description}"
+                    class = "form-control"
+                    placeholder="Enter Pet Description"
+            />
+          </div>
+
+			<div class ="form-group">
+            <label> Image </label>
+            <input
+                    type = "text"
+                    name = "image"
+                    th:field = "*{image}"
+                    class = "form-control"
+                    placeholder="Enter Pet URL image"
+            />
+          </div>
+          
+          
+          <input type="radio" id="avaliable" name="avaliable" value="true" th:field = "*{avaliable}">
+		  <label for="avaliable">Avaliable for adoption</label><br>
+		  <input type="radio" id="unvaliable" name="unvaliable" value="false" th:field = "*{avaliable}">
+		  <label for="unvaliable">Unvaliable for adoption</label><br>
+          
+          <div class ="form-group">
+            <label> Age </label>
+            <input
+                    type = "number"
+                    name = "age"
+                    th:field = "*{age}"
+                    class = "form-control"
+                    placeholder="Enter Pet Age"
+            />
+          </div>
+          
+          <div class ="form-group">
+            <label> Health </label>
+            <input
+                    type = "text"
+                    name = "health"
+                    th:field = "*{health}"
+                    class = "form-control"
+                    placeholder="Enter Pet Health Condition"
+            />
+          </div>
+          
+          <div class ="form-group">
+            <label> Breed </label>
+            <input
+                    type = "text"
+                    name = "breed"
+                    th:field = "*{breed}"
+                    class = "form-control"
+                    placeholder="Enter Pet Breed"
+            />
+          </div>
+          
+          <div class = "box-footer">
+            <button type="submit" class = "btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

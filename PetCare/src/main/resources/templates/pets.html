@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Pet Care</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Pet Housing Service</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+	<style>
+		a{color: black;}
+		a:hover{color: black;}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/pets">Pet Services</a>
+	<a class="navbar-brand" th:href = "@{/login}">My Pets</a>
+</nav>
+
+
+<div class ="container">
+
+    <div class = "row">
+        <h1> List Pets </h1>
+    </div>
+
+    <div class = "row">
+    </div>
+    <div style="
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;">
+	    <div th:each = "pet: ${pets}" class="card" style="width: 18rem; height: fit-content; margin-bottom: 1em;">
+	            <img th:src="${pet.image}" class="class="img-thumbnail"" alt="..." style="height: 40%;">
+	            <div class="card-body">
+	              <a th:href = "@{/pets/{pid} (pid=${pet.pid})}"><h5 class="card-title" th:text = "${pet.name}"></h5></a>
+	            </div>
+	    </div>
+    </div>
+
+</div>
+</body>
+</html>

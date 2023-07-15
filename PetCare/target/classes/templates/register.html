@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Pet Care</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+		crossorigin="anonymous">
+	</script>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/pets">Pet Services</a>
+	<a class="navbar-brand" th:href = "@{/login}">My Pets</a>
+</nav>
+<br>
+<br>
+<div class = "container">
+  <div class = "row">
+    <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+      <h1 class = "text-center"> Register </h1>
+      <h5 class = "text-center" style="color: red;" th:text="${message}"></h5>
+      <div class = "card-body">
+      	<form th:action="@{/users}" th:object = "${register}" method="POST" class="row g-3 needs-validation" novalidate>
+		  <div class="col-md-4">
+		    <label for="validationCustom01" class="form-label">First name</label>
+		    <input
+                    type = "text"
+                    name = "email"
+                    th:field = "*{firstname}"
+                    class = "form-control"
+                    placeholder="Enter Email"
+                    id="validationCustom01"
+                    required
+            />
+		    <div class="valid-feedback">
+		      Looks good!
+		    </div>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="validationCustom02" class="form-label">Last name</label>
+		    <input
+                    type = "text"
+                    name = "lastname"
+                    th:field = "*{lastname}"
+                    class = "form-control"
+                    placeholder="Enter Last Name"
+                    id="validationCustom02"
+            />
+		    <div class="valid-feedback">
+		      Looks good!
+		    </div>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="validationCustomUsername" class="form-label">Username</label>
+		    <div class="input-group has-validation">
+		      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend"
+                    name = "username"
+                    th:field = "*{username}"
+                    placeholder="Enter Username"
+                    required
+            />
+		      <div class="invalid-feedback">
+		        Please enter a username.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-md-5">
+		    <label for="validationCustomPassword" class="form-label">Password</label>
+		    <div class="input-group has-validation">
+		      <input type="text" class="form-control" id="validationCustomPassword" aria-describedby="inputGroupPrepend"
+                    name = "password"
+                    th:field = "*{password}"
+                    placeholder="Enter password"
+                    required
+            />
+		      <div class="invalid-feedback">
+		        Please enter a password.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-md-6">
+		    <label for="validationCustomEmail" class="form-label">Email</label>
+		    <div class="input-group has-validation">
+		      <input type="text" class="form-control" id="validationCustomEmail" aria-describedby="inputGroupPrepend"
+                    name = "email"
+                    th:field = "*{email}"
+                    placeholder="Enter Email"
+                    required
+            />
+		      <div class="invalid-feedback">
+		        Please enter an email.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-md-6">
+		    <label for="validationCustomEmail" class="form-label">Phone Number</label>
+		    <div class="input-group has-validation">
+		      <input type="text" class="form-control" id="validationCustomPhonenumber" aria-describedby="inputGroupPrepend"
+                    name = "phonenumber"
+                    th:field = "*{phonenumber}"
+                    placeholder="Enter phone number"
+                    required
+            />
+		      <div class="invalid-feedback">
+		        Please enter a phone number.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="validationCustom04" class="form-label">City</label>
+		    <input type="text" class="form-control" id="validationCustom04"
+		            name = "city"
+                    th:field = "*{city}"
+                    placeholder="Enter City"
+                    required
+            />
+		    <div class="invalid-feedback">
+		      Please provide a valid city.
+		    </div>
+		  </div>
+		  <div class="col-12">
+		    <button class="btn btn-primary" type="submit">Submit</button>
+		  </div>
+		</form>
+		<script type="text/javascript">
+			// Example starter JavaScript for disabling form submissions if there are invalid fields
+			(() => {
+			  'use strict'
+			
+			  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+			  const forms = document.querySelectorAll('.needs-validation')
+			
+			  // Loop over them and prevent submission
+			  Array.from(forms).forEach(form => {
+			    form.addEventListener('submit', event => {
+			      if (!form.checkValidity()) {
+			        event.preventDefault()
+			        event.stopPropagation()
+			      }
+			
+			      form.classList.add('was-validated')
+			    }, false)
+			  })
+			})()
+		</script>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

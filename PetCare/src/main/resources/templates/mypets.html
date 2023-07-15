@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pet Care</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/pets">Pet Services</a>
+	<a class="navbar-brand" th:href = "@{/login}">My Pets</a>
+</nav>
+	<div class ="container">
+		<div class = "row">
+			<h1> My Pets </h1>
+		</div>
+		
+		<div class = "row">
+			<div class = "col-lg-3">
+				<a th:href = "@{/pets/new}" class = "btn btn-primary btn-sm mb-3"> Add Pet</a>
+				<h6 th:text=" 'User: ' + ${user.username}"></h6>
+			</div>
+			<div>
+			</div>
+		</div>
+		<table class = "table table-striped table-bordered">
+			<thead class = "table-dark">
+				<tr>
+					<th> Pet ID</th>
+					<th> Pet Name</th>
+					<th> Pet Type</th>
+					<th> Pet Gender </th>
+					<th> Availability </th>
+					<th> Actions </th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "pet: ${pets}">
+					<td th:text = "${pet.pid}"></td>
+					<td th:text = "${pet.name}"></td>
+					<td th:text = "${pet.type}"></td>
+					<td th:text = "${pet.gender}"></td>
+					<div th:switch="${pet.avaliable}"> 
+					  <td th:case="true">Avaliable</td>
+					  <td th:case="false">Unavaliable</td> 
+					  <td th:case="*">IDK</td>
+					</div>
+					<td>
+						<a th:href = "@{/pets/edit/{pid}(pid=${pet.pid})}"
+						 class = "btn btn-primary">Update</a>
+						
+						<a th:href = "@{/pets/delete/{pid}(pid=${pet.pid})}"
+						 class = "btn btn-danger">Delete</a>
+						 
+					</td>
+				</tr>
+			</tbody>
+		
+		</table>
+		
+	</div>
+</body>
+</html>

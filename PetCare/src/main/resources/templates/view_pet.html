@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Pet Care</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+  <style>
+  	.top_image{
+		height: 50vh;		  
+	}
+  	.image_div{
+		height: fit-content; 
+  		width: 100%; 
+  		display: flex;
+  		flex-direction: row;
+  		justify-content: center;
+  		align-items: center;
+  		margin-top: 1%;
+	}
+	.content{
+		margin-top: 1%;
+	}
+  	#content_left{
+	  	width: 60%;
+	  	border-style: solid;
+	  	border-width: 1px;
+	  	border-color: rgba(0, 0, 0, 0.3);
+	  	display: inline-block;
+	  	margin-left: 1.5%;
+	  	border-radius: 1em;
+	  	background-color: white;
+	}
+	#content_right{
+		width: 35%;
+		height: fit-content;
+		border-style: solid;
+		border-width: 1px;
+		border-color: rgba(0, 0, 0, 0.3);
+		display: inline-block;
+		margin-left: 2%;
+		border-radius: 1em;
+		background-color: white;
+		padding: 2%;
+	}
+	.name_text{
+		display: inline-block;
+		margin: 0;
+		margin-left: 2%;
+	}
+	.name_text_dot{
+		display: inline-block;
+		margin: 0;
+		margin-left: 2%;
+		font-size: 30pt;
+	}
+	.about{
+		margin-top: 5%;
+		padding: 2%;
+	}
+	.about_next{
+		padding: 2%;
+	}
+
+	.about_text{
+		display: block;
+	}
+	.owner_info{
+		display: block;
+		margin-top: 3%;
+	}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/pets">Pet Services</a>
+	<a class="navbar-brand" th:href = "@{/login}">My Pets</a>
+</nav>
+	<div class="image_div">
+		<img th:src="${pet.image}" class="top_image" alt="...">
+	</div>
+	<div class="content">
+		<div id="content_left">
+			<div class="name">
+				<h2 class="name_text" th:text="${pet.name}"></h2>
+				<h2 class="name_text_dot">·</h2>
+				<h2 class="name_text" th:text="${pet.gender}"></h2>
+				<h2 class="name_text_dot">·</h2>
+				<h2 class="name_text" th:text="${pet.type}"></h2>
+				<hr>
+			</div>
+			<div class="about">
+				<h4 class="about_text">Description:</h4>
+				<h5 class="about_text" th:text="${pet.description}"></h3>
+				<br>
+			</div>
+			<div class="about_next">
+				<h4 class="about_text">Age:</h4>
+				<h5 class="about_text" th:text="${pet.age}"></h3>
+				<br>
+			</div>
+			<div class="about_next">
+				<h4 class="about_text">Breed:</h4>
+				<h5 class="about_text" th:text="${pet.breed}"></h3>
+			</div>
+		</div>
+		<div id="content_right">
+			<h4 class="owner_info">Owner name:</h4>
+			<h5 style="display: inline-block;" th:text="${user.firstname}"></h5>
+			<h5 style="display: inline-block;" th:text="${user.lastname}"></h5>
+			<h4 class="owner_info">Owner phone number:</h4>
+			<h5 th:text="${user.phonenumber}"></h5>	
+			<h4 class="owner_info">Owner email:</h4>
+			<h5 th:text="${user.email}"></h5>
+			<h4 class="owner_info">City:</h4>
+			<h5 th:text="${user.city}"></h5>			
+		</div>
+	</div>
+</body>
+</html>
