@@ -13,3 +13,5 @@ these are some of the projects that I worked on during my university time.
 5- Logo Animation: we chose the Zoom logo to do some animation on it, we have made 3 different animations on it using Java and OpenGL.
 
 6- Web Design: it is a project where we have to search for a website with bad UI/UX and make another version of it where it could have better UI/UX, the file contains a report that has all details needed about the website before and after the changes, you can find the Figma project URL at the end of the PDF file.
+
+7- SDA-MAchine Learning: The idea of this project is that i have soldiers dataset and i want to predict thier race based on thier phisycal features, This project focuses on predictive modeling using machine learning techniques to address imbalanced datasets. The project includes data preprocessing, resampling methods (SMOTE and random undersampling), and training a logistic regression model, SVM, Random Forest, XGBoost, and compare them and try to achieve a balanced classification outcome.
